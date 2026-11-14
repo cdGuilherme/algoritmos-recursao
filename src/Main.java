@@ -1,4 +1,4 @@
-// # Algoritmos de Recursão v0.3.0
+// # Algoritmos de Recursão v0.4.0
 //
 // ## Algoritmos para implementar:
 // - Soma dos elementos de um vetor
@@ -15,7 +15,6 @@ void main() {
     Scanner s = new Scanner(System.in);
 
     int opcao;
-    int input;
 
     // Loop principal de execução no terminal
     do {
@@ -26,8 +25,16 @@ void main() {
         System.out.println("4 - Soma dos Elementos de um Vetor");
         System.out.println("0 - Sair");
 
-        System.out.print("Selecione uma opção: ");
-        opcao = s.nextInt();
+        try {
+            // Usuário seleciona uma das opções fornecidas
+            System.out.print("Selecione uma opção: ");
+            opcao = s.nextInt();
+        } catch (InputMismatchException e) {
+            // Usuário digita outra coisa sem ser um número inteiro
+            opcao = -1;
+            s.nextLine();
+        }
+
         System.out.println();
 
         // Usuário seleciona uma opção
@@ -36,7 +43,7 @@ void main() {
             case 1 -> {
                 // Usuário digita um número inteiro não negativo
                 System.out.print("Digite um número inteiro não negativo: ");
-                input = s.nextInt();
+                int input = s.nextInt();
 
                 // Loop caso o usuário digitar um número negativo
                 while (input < 0) {
@@ -48,6 +55,7 @@ void main() {
                 // Execução do algoritmo
                 int resultado = Algoritmos.SomaAlgarismos(input);
                 System.out.println("A soma dos algarismos de " + input + " é: " + resultado);
+                Utils.EsperarEnter();
             }
 
 
@@ -55,7 +63,7 @@ void main() {
             case 2 -> {
                 // Usuário digita uma base inteira não negativa
                 System.out.print("Digite uma base inteira não negativa: ");
-                input = s.nextInt();
+                int input = s.nextInt();
 
                 // Loop caso o usuário digitar uma base negativa
                 while (input < 0) {
@@ -82,6 +90,7 @@ void main() {
                 // Execução do algoritmo
                 long resultado = Algoritmos.CalculoPotencia(base, exp);
                 System.out.println("O resultado de " + base + "^" + exp + " é: " + resultado);
+                Utils.EsperarEnter();
             }
 
 
@@ -89,7 +98,7 @@ void main() {
             case 3 -> {
                 // Usuário digita um número inteiro não negativo
                 System.out.print("Digite um número inteiro não negativo: ");
-                input = s.nextInt();
+                int input = s.nextInt();
 
                 // Loop caso o usuário digitar um número negativo
                 while (input < 0) {
@@ -101,11 +110,44 @@ void main() {
                 // Execução do algoritmo
                 String resultado = Algoritmos.DecimalParaBinario(input);
                 System.out.println(input + " em binário é: " + resultado);
+                Utils.EsperarEnter();
             }
 
 
             // Soma dos Elementos de um Vetor
             case 4 -> {
+                // Criando o vetor que será utilizado para a soma
+                Lista l = new Lista();
+                System.out.println("Vamos criar um vetor de números inteiros para executar esse algoritmo");
+                System.out.println("Pressione <ENTER> para parar de adicionar elementos e somar o vetor");
+
+                // Usuário informa o primeiro elemento do vetor
+                int i = 1;
+                System.out.print("Digite o " + i + "º número: ");
+                s.nextLine();
+
+                // Usuário informa os demais elementos a serem adicionados no vetor em um loop while. O try vai tentar
+                // converter esse input do tipo string para um número inteiro, e se for possível ele adiciona este
+                // elemento para o vetor, se não for possível ocorre uma exceção "NumberFormatException" que o catch irá
+                // utilizar para sair do loop
+                while (s.hasNextLine()) {
+                    String input = s.nextLine();
+
+                    try {
+                        int num = Integer.parseInt(input);
+                        l.add(num);
+                        i++;
+                        System.out.print("Digite o " + i + "º número: ");
+                    } catch (NumberFormatException e) {
+                        break;
+                    }
+                }
+
+                // Execução do algoritmo
+                No elemento = l.primeiro;
+                int resultado = Algoritmos.SomaElementosVetor(elemento);
+                System.out.println("A soma dos números do vetor é: " + resultado);
+                Utils.EsperarEnter();
             }
 
 
@@ -116,7 +158,7 @@ void main() {
 
             // Opção inválida
             default -> {
-                System.out.println("\nOpção inválida!");
+                System.out.println("Opção inválida!");
                 Utils.EsperarEnter();
             }
         }

@@ -46,4 +46,24 @@ public class Algoritmos {
         // das divisões e retornar o resultado. Os números 0 e 1 já possuem uma representação binária de um único
         // algarismo, então não é necessário passar pelo caso recursivo, apenas retornamos o valor em string
     }
+
+    // ## Soma dos Elementos de um Vetor
+    // - Recebe um vetor de números e retorna a soma de todos os seus elementos
+    // - Requisitos:
+    //   1. Não é permitido trabalhar com índice ou a quantidade de elementos para controlar
+    //      as chamadas, utilize a classe lista ligada para isso.
+    //   2. Percorra a lista por meio das chamadas recursivas, sem modificar seus elementos.
+    public static int SomaElementosVetor(No elemento) {
+        if (elemento == null) return 0;                              // Caso base
+        return elemento.info + SomaElementosVetor(elemento.proximo); // Caso recursivo
+        // Este algoritmo atende aos requisitos propostos, pois utiliza uma propriedade específica da lista ligada que é
+        // como você acessa os elementos. Em um array, você pode acessar os elementos a partir de um índice, mas em uma
+        // lista ligada não é tão simples, pois os elementos estão espalhados pela memória. Então para você acessar
+        // todos os elementos de uma lista ligada, você precisa partir do início ou fim dela e percorrê-la utilizando
+        // os atributos próximo ou anterior
+        // O algoritmo recursivo de soma de elementos de um vetor do tipo lista ligada funciona, pois a função inicia
+        // com o primeiro elemento da lista, que vai somar com o retorno do próximo elemento (caso recursivo)
+        // A condição de saída ou caso base é quando a referência desse próximo elemento não existe, então ele é null
+        // e irá retornar 0, que é o ponto neutro da soma
+    }
 }
