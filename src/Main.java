@@ -1,12 +1,12 @@
-// # Algoritmos de Recursão v0.1.0
+// # Algoritmos de Recursão v0.3.0
 //
 // ## Algoritmos para implementar:
-// - Cálculo de potência
-// - Conversão de decimal para binário
 // - Soma dos elementos de um vetor
 //
 // ## Algoritmos já implementados:
 // - Soma dos algarismos
+// - Cálculo de potência
+// - Conversão de decimal para binário
 
 import java.util.Scanner;
 
@@ -38,7 +38,7 @@ void main() {
                 System.out.print("Digite um número inteiro não negativo: ");
                 input = s.nextInt();
 
-                // Loop caso usuário digitar um número negativo
+                // Loop caso o usuário digitar um número negativo
                 while (input < 0) {
                     System.out.println("Não foi possível executar o algoritmo pois " + input + " é um número negativo!");
                     System.out.print("Digite um número inteiro não negativo: ");
@@ -47,7 +47,7 @@ void main() {
 
                 // Execução do algoritmo
                 int resultado = Algoritmos.SomaAlgarismos(input);
-                System.out.println("A soma é: " + resultado);
+                System.out.println("A soma dos algarismos de " + input + " é: " + resultado);
             }
 
 
@@ -87,6 +87,20 @@ void main() {
 
             // Conversão de Decimal para Binário
             case 3 -> {
+                // Usuário digita um número inteiro não negativo
+                System.out.print("Digite um número inteiro não negativo: ");
+                input = s.nextInt();
+
+                // Loop caso o usuário digitar um número negativo
+                while (input < 0) {
+                    System.out.println("Não foi possível executar o algoritmo pois " + input + " é um número negativo!");
+                    System.out.print("Digite um número inteiro não negativo: ");
+                    input = s.nextInt();
+                }
+
+                // Execução do algoritmo
+                String resultado = Algoritmos.DecimalParaBinario(input);
+                System.out.println(input + " em binário é: " + resultado);
             }
 
 
