@@ -34,13 +34,18 @@ void main() {
         switch (opcao) {
             // Soma dos Algarismos
             case 1 -> {
+                // Usuário digita um número inteiro não negativo
                 System.out.print("Digite um número inteiro não negativo: ");
                 input = s.nextInt();
+
+                // Loop caso usuário digitar um número negativo
                 while (input < 0) {
                     System.out.println("Não foi possível executar o algoritmo pois " + input + " é um número negativo!");
                     System.out.print("Digite um número inteiro não negativo: ");
                     input = s.nextInt();
                 }
+
+                // Execução do algoritmo
                 int resultado = Algoritmos.SomaAlgarismos(input);
                 System.out.println("A soma é: " + resultado);
             }
@@ -48,6 +53,35 @@ void main() {
 
             // Cálculo de Potência
             case 2 -> {
+                // Usuário digita uma base inteira não negativa
+                System.out.print("Digite uma base inteira não negativa: ");
+                input = s.nextInt();
+
+                // Loop caso o usuário digitar uma base negativa
+                while (input < 0) {
+                    System.out.println(input + " é um número negativo!");
+                    System.out.print("Digite uma base inteira não negativa: ");
+                    input = s.nextInt();
+                }
+
+                int base = input;
+
+                // Usuário digita uma base inteira não negativa
+                System.out.print("Digite um expoente inteiro não negativo: ");
+                input = s.nextInt();
+
+                // Loop caso o usuário digitar um expoente negativo
+                while (input < 0) {
+                    System.out.println(input + " é um número negativo!");
+                    System.out.print("Digite um expoente inteiro não negativo: ");
+                    input = s.nextInt();
+                }
+
+                int exp = input;
+
+                // Execução do algoritmo
+                long resultado = Algoritmos.CalculoPotencia(base, exp);
+                System.out.println("O resultado de " + base + "^" + exp + " é: " + resultado);
             }
 
 
