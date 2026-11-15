@@ -1,0 +1,46 @@
+name: Build Java Project
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 26
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '26'
+
+      - name: Compile project
+        run: |
+          mkdir -p out
+          javac -d out src/*.java
+
+      - name: Package JAR
+        run: |
+          mkdir -p dist
+          jar --create \
+            --file dist/algoritmos-recursao.jar \
+            --main-class Main \
+            -C out .
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: algoritmos-recursao
+          path: dist/algoritmos-recursao.jar
+          if-no-files-found: error
+          retention-days: 14

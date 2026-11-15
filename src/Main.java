@@ -1,4 +1,4 @@
-// # Algoritmos de Recursão v0.5.0
+// # Algoritmos de Recursão v1.0.0
 //
 // ## Algoritmos para implementar:
 // - Soma dos elementos de um vetor
@@ -11,13 +11,13 @@
 import java.util.Scanner;
 
 void main() {
-    Utils.LimparConsole();
     Scanner s = new Scanner(System.in);
 
     int opcao;
 
     // Loop principal de execução no terminal
     do {
+        Utils.LimparConsole();
         System.out.println("<< Algoritmos de Recursão >>");
         System.out.println("1 - Soma dos Algarismos");
         System.out.println("2 - Cálculo de Potência");
