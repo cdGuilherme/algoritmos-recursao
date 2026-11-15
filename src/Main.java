@@ -1,4 +1,4 @@
-// # Algoritmos de Recursão v0.4.0
+// # Algoritmos de Recursão v0.5.0
 //
 // ## Algoritmos para implementar:
 // - Soma dos elementos de um vetor
@@ -23,6 +23,7 @@ void main() {
         System.out.println("2 - Cálculo de Potência");
         System.out.println("3 - Conversão de Decimal para Binário");
         System.out.println("4 - Soma dos Elementos de um Vetor");
+        System.out.println("5 - Testar os Algoritmos");
         System.out.println("0 - Sair");
 
         try {
@@ -147,6 +148,47 @@ void main() {
                 No elemento = l.primeiro;
                 int resultado = Algoritmos.SomaElementosVetor(elemento);
                 System.out.println("A soma dos números do vetor é: " + resultado);
+                Utils.EsperarEnter();
+            }
+
+
+            // Testar os Algoritmos
+            case 5 -> {
+                int testesValidos = 0;
+                int totalTestes = 12;
+
+                // Soma dos Algarismos
+                System.out.println("Testando o algoritmo de soma dos algarismos: ");
+                testesValidos += Utils.ValidarSomaAlgarismos(1234, 10);
+                testesValidos += Utils.ValidarSomaAlgarismos(507, 12);
+                testesValidos += Utils.ValidarSomaAlgarismos(0, 0);
+
+                // Cálculo de Potência
+                System.out.println("\nTestando o algoritmo de cálculo de potência: ");
+                testesValidos += Utils.ValidarCalculoPotencia(2, 5, 32);
+                testesValidos += Utils.ValidarCalculoPotencia(3, 3, 27);
+                testesValidos += Utils.ValidarCalculoPotencia(7, 0, 1);
+
+                // Conversão de Decimal para Binário
+                System.out.println("\nTestando o algoritmo de conversão de decimal para binário: ");
+                testesValidos += Utils.ValidarDecimalParaBinario(10, "1010");
+                testesValidos += Utils.ValidarDecimalParaBinario(13, "1101");
+                testesValidos += Utils.ValidarDecimalParaBinario(0, "0");
+
+                // Soma dos Elementos de um Vetor
+                System.out.println("\nTestando o algoritmo de soma dos elementos de um vetor: ");
+                // @formatter:off
+                Lista l = new Lista(); l.add(2); l.add(4); l.add(6); l.add(8);
+                testesValidos += Utils.ValidarSomaElementosVetor(l, 20);
+                l = new Lista(); l.add(5); l.add(-2); l.add(3);
+                testesValidos += Utils.ValidarSomaElementosVetor(l, 6);
+                l = new Lista();
+                testesValidos += Utils.ValidarSomaElementosVetor(l, 0);
+                // @formatter:on
+
+                // Resultados
+                System.out.println();
+                System.out.println("Resultado: " + testesValidos + " de " + totalTestes + " testes passaram");
                 Utils.EsperarEnter();
             }
 

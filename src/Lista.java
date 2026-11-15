@@ -75,4 +75,20 @@ public class Lista {
             return "Não há elementos para modificar!";
         }
     }
+
+
+    // Percorrer e exibir a lista do início ao fim
+    public String visualizarLista() {
+        No aux = primeiro;
+        StringBuilder retorno = new StringBuilder("{");
+
+        // Percorrendo a lista
+        for (int i = 0; i < qtdNo; i++) {
+            retorno.append(aux.info);
+            if (i != qtdNo - 1)
+                retorno.append(", ");
+            aux = aux.proximo;
+        }
+        return retorno.append("}").toString();
+    }
 }
