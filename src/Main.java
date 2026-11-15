@@ -1,12 +1,4 @@
-// # Algoritmos de Recursão v1.0.0
-//
-// ## Algoritmos para implementar:
-// - Soma dos elementos de um vetor
-//
-// ## Algoritmos já implementados:
-// - Soma dos algarismos
-// - Cálculo de potência
-// - Conversão de decimal para binário
+// # Algoritmos de Recursão v1.0.1
 
 import java.util.Scanner;
 

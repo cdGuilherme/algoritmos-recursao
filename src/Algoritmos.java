@@ -47,6 +47,7 @@ public class Algoritmos {
         // algarismo, então não é necessário passar pelo caso recursivo, apenas retornamos o valor em string
     }
 
+
     // ## Soma dos Elementos de um Vetor
     // - Recebe um vetor de números e retorna a soma de todos os seus elementos
     // - Requisitos:
