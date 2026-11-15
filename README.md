@@ -4,6 +4,28 @@ Projeto desenvolvido em Java 26 com o objetivo de estudar e aplicar conceitos de
 
 A aplicação funciona pelo terminal e disponibiliza um menu interativo para executar os algoritmos individualmente ou testar seus resultados.
 
+## Download
+
+A versão compilada do projeto está disponível para download no GitHub Releases.
+
+<details>
+
+Acesse a [página de Releases](https://github.com/cdGuilherme/algoritmos-recursao/releases) e baixe a versão desejada.
+
+### Como executar
+
+É necessário ter o Java 26 ou superior instalado.
+
+Após baixar o arquivo, abra o terminal na pasta onde ele foi salvo e execute:
+
+```bash
+java -jar algoritmos-recursao.jar
+```
+
+**Segurança e procedência:** o arquivo JAR é compilado automaticamente pelo GitHub Actions a partir do código-fonte deste repositório e disponibilizado pelo GitHub Releases.
+
+</details>
+
 ## Funcionalidades
 
 O programa implementa quatro algoritmos recursivos:
@@ -126,10 +148,18 @@ A opção **5 - Testar os Algoritmos** executa casos de teste predefinidos para 
 
 Os resultados são comparados com os valores esperados, indicando quais testes passaram ou falharam.
 
-## Integração contínua (GitHub Actions)
+## Integração contínua e publicação (GitHub Actions)
 
-O projeto utiliza GitHub Actions para automatizar o processo de compilação.
+O projeto utiliza GitHub Actions para automatizar a compilação e publicação de versões.
 
-O workflow é executado automaticamente em atualizações nas branches principais e em pull requests, utilizando Java 26.
+O workflow realiza as seguintes etapas:
 
-Após uma compilação bem-sucedida, um arquivo JAR é gerado e disponibilizado como artefato para download na execução do workflow.
+- Configuração do ambiente com Java 26.
+- Compilação dos arquivos Java.
+- Empacotamento da aplicação em um arquivo JAR executável.
+- Disponibilização do artefato de compilação.
+- Publicação automática de Releases quando uma nova tag de versão é enviada ao repositório.
+
+Para publicar uma nova versão, basta criar e enviar uma tag seguindo o padrão `v*`, como `v1.1.0`.
+
+As versões publicadas ficam disponíveis permanentemente na seção [GitHub Releases](https://github.com/cdGuilherme/algoritmos-recursao/releases), enquanto forem mantidas no repositório.
